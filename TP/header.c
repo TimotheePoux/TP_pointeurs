@@ -25,3 +25,7 @@ void runApplication(const struct Application* app) {
 		}
 	}
 }
+
+void runPhone(struct Application* app1, struct Application* app2) {
+	printf("--Applications--\n-%s\n-%s\nChoisissez une option (0 pour quitter):", app1->nom, app2->nom);
+}

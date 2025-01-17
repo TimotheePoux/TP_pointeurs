@@ -52,6 +52,9 @@ int main(){
 	struct Menu photoMenus[] = {"Prendre un photo", "Prendre un video", "Prendre un panorama", "Ajouter un filtre", "Regarder les photos"};
 	struct Application photoApp = { "Photos", &photoMenus, 5 };
 
+	struct Menu messagesMenus[] = { "Lire les messages", "Envoyer un message" };
+	struct Application messagesApp = { "Messages", &messagesMenus, 2 };
+
 	runApplication(&photoApp);
 
 	return 0;

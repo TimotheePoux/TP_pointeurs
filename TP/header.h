@@ -16,5 +16,6 @@ struct Application {
 
 void displayMenu(const struct Application* app);
 void runApplication(const struct Application* app);
+void runPhone(struct Application* app1, struct Application* app2);
 
 #endif

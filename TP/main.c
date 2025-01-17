@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "header.h"
 
 void min_max(int tab[], int size, int* min, int* max)
 {
@@ -39,11 +40,18 @@ int main(){
 	printf("%d\n", a);
 	*/
 
+	/* EXEMPLE 2 POINTEURS
+	
 	int min = 0;
 	int max = 0;
 	int tableau[] = {12, 2 , 8 , -7 , 15 , 2};
 	min_max(tableau, 6, &min, &max);
 	printf("min = % d, max = % d\n", min, max);
+	*/
+
+	struct Menu exemple_menu = { "option1" };
+	struct Application exemple_appli = { "super appli", {&exemple_menu}, 1};
+
 
 	return 0;
 }

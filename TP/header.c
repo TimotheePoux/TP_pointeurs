@@ -18,14 +18,33 @@ void runApplication(const struct Application* app) {
 			break;
 		}
 		else if (choix < 0 || choix > app->nb_menus) {
-			printf("Entrez une valeur valide\n\n");
+			printf("Entrez une valeur valide\n");
 		}
 		else {
-			printf("Vous avez choisi : %s\n\n", app->menus[choix-1]);
+			printf("Vous avez choisi : %s\n", app->menus[choix-1]);
 		}
 	}
 }
 
 void runPhone(struct Application* app1, struct Application* app2) {
-	printf("--Applications--\n-%s\n-%s\nChoisissez une option (0 pour quitter):", app1->nom, app2->nom);
+	int run = 1;
+	while (run == 1) {
+		printf("--Applications--\n1. %s\n2. %s\nChoisissez une application (0 pour quitter): ", app1->nom, app2->nom);
+		int choix = 0;
+		scanf_s("%d", &choix);
+		switch(choix) {
+		case 0:
+			run = 0;
+			break;
+		case 1:
+			runApplication(app1);
+			break;
+		case 2:
+			runApplication(app2);
+			break;
+		default:
+			printf("Entrez une valeur valide\n\n");
+			break;
+		}
+	}
 }

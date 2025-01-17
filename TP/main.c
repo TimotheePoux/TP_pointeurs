@@ -49,9 +49,10 @@ int main(){
 	printf("min = % d, max = % d\n", min, max);
 	*/
 
-	struct Menu exemple_menu = { "option1" };
-	struct Application exemple_appli = { "super appli", {&exemple_menu}, 1};
+	struct Menu photoMenus[] = {"Prendre un photo", "Prendre un video", "Prendre un panorama", "Ajouter un filtre", "Regarder les photos"};
+	struct Application photoApp = { "Photos", &photoMenus, 5 };
 
+	displayMenu(&photoApp);
 
 	return 0;
 }

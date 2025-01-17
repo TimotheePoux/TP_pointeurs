@@ -14,4 +14,6 @@ struct Application {
 	int nb_menus;
 };
 
+void displayMenu(const struct Application* app);
+
 #endif

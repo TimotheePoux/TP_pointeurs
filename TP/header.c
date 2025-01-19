@@ -3,7 +3,7 @@
 void displayMenu(const struct Application* app) {
 	printf("--%s--\n",app->nom);
 	for (int i = 0; i < app->nb_menus; i++) {
-		printf("%d. %s\n", i+1, app->menus[i]);
+		printf("%d. %s\n", i+1, app->menus[i].option);
 	}
 	printf("Choisissez une option (0 pour quitter)");
 }
@@ -21,7 +21,7 @@ void runApplication(const struct Application* app) {
 			printf("Entrez une valeur valide\n");
 		}
 		else {
-			printf("Vous avez choisi : %s\n", app->menus[choix-1]);
+			printf("Vous avez choisi : %s\n", app->menus[choix-1].option);
 		}
 	}
 }
@@ -46,5 +46,15 @@ void runPhone(struct Application* app1, struct Application* app2) {
 			printf("Entrez une valeur valide\n\n");
 			break;
 		}
+	}
+}
+
+void updateMenu(struct Application* app, int menuIndex, const char* newOption) {
+	if (menuIndex < app->nb_menus) {
+		app->menus[menuIndex].option = newOption;
+		printf("Option correctement modifiee\n");
+	}
+	else {
+		printf("Index invalide\n");
 	}
 }

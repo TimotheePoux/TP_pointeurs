@@ -55,6 +55,9 @@ int main(){
 	struct Menu messagesMenus[] = { "Lire les messages", "Envoyer un message" };
 	struct Application messagesApp = { "Messages", &messagesMenus, 2 };
 
+	updateMenu(&photoApp, 0, "Photographier");
+	updateMenu(&photoApp, 1, "Filmer");
+	updateMenu(&photoApp, 5, "Zoomer");
 	runPhone(&photoApp, &messagesApp);
 
 	return 0;

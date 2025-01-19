@@ -25,4 +25,5 @@ void runPhone(struct Application* app1, struct Application* app2);
 void updateMenu(struct Application* app, int menuIndex, const char* newOption);
 void updateApplication(struct Application* app, const char* newName, struct Menu* newMenus, int newMenuCount);
 void modifierMenu(struct Application* app);
+void modifierApplication(struct Application* app);
 #endif

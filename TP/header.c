@@ -14,6 +14,7 @@ void runApplication(const struct Application* app) {
 		int choix = 0;
 		printf(": ");
 		scanf_s("%d", &choix);
+		getchar();
 		if (choix == 0) {
 			break;
 		}
@@ -29,9 +30,10 @@ void runApplication(const struct Application* app) {
 void runPhone(struct Application* app1, struct Application* app2) {
 	int run = 1;
 	while (run == 1) {
-		printf("--Applications--\n1. %s\n2. %s\n3. Modifier le menu de 'Photos'\nChoisissez une application (0 pour quitter): ", app1->nom, app2->nom);
+		printf("--Applications--\n1. %s\n2. %s\n3. Modifier le menu de 'Photos'\n4. Modifier l'application '%s'\nChoisissez une application (0 pour quitter): ", app1->nom, app2->nom, app2->nom);
 		int choix = 0;
 		scanf_s("%d", &choix);
+		getchar();
 		switch(choix) {
 		case 0:
 			run = 0;
@@ -44,6 +46,9 @@ void runPhone(struct Application* app1, struct Application* app2) {
 			break;
 		case 3:
 			modifierMenu(app1);
+			break;
+		case 4:
+			modifierApplication(app2);
 			break;
 		default:
 			printf("Entrez une valeur valide\n");
@@ -73,6 +78,7 @@ void modifierMenu(struct Application* app) {
 	int choix = 0;
 	printf(": ");
 	scanf_s("%d", &choix);
+	getchar();
 	if (choix == 0) {
 		return;
 	}
@@ -83,6 +89,36 @@ void modifierMenu(struct Application* app) {
 		printf("Entrez la nouvelle option: ");
 		char newOption[100] = "";
 		scanf("%s", newOption);
+		getchar();
 		updateMenu(app, choix-1, newOption);
 	}
+}
+
+void modifierApplication(struct Application* app) {
+	printf("Entrez le nouveau nom de l'application : ");
+	char newName[100] = "";
+	scanf("%s", newName);
+	getchar();
+	printf("Combien d'options possedera l'application : ");
+	int numberOptions = 0;
+	while (1) {
+		scanf_s("%d", &numberOptions);
+		getchar();
+		if (numberOptions > 0) {
+			break;
+		}
+	}
+	printf("--%s--\n",newName);
+	struct Menu newMenu[100];
+	updateApplication(app, newName, &newMenu, numberOptions);
+	char nouvelleOption[100] = "";
+	for (int i = 0; i < numberOptions; i++) {
+		printf("%d. ", i+1);
+		scanf("%s", nouvelleOption);
+		getchar();
+		app->menus[i].option = nouvelleOption;
+	
+	}
+	printf("Application modifiee\n");
+
 }

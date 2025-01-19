@@ -58,6 +58,10 @@ int main(){
 	updateMenu(&photoApp, 0, "Photographier");
 	updateMenu(&photoApp, 1, "Filmer");
 	updateMenu(&photoApp, 5, "Zoomer");
+
+	struct Menu nouveauMenu[] = { "Rechercher", "Se connecter", "Historique de recherches" };
+	updateApplication(&messagesApp, "Moteur de recherche", &nouveauMenu, 3);
+
 	runPhone(&photoApp, &messagesApp);
 
 	return 0;

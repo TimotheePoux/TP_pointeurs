@@ -18,4 +18,5 @@ void displayMenu(const struct Application* app);
 void runApplication(const struct Application* app);
 void runPhone(struct Application* app1, struct Application* app2);
 void updateMenu(struct Application* app, int menuIndex, const char* newOption);
+void updateApplication(struct Application* app, const char* newName, struct Menu* newMenus, int newMenuCount);
 #endif

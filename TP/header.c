@@ -58,3 +58,9 @@ void updateMenu(struct Application* app, int menuIndex, const char* newOption) {
 		printf("Index invalide\n");
 	}
 }
+
+void updateApplication(struct Application* app, const char* newName, struct Menu* newMenus, int newMenuCount) {
+	app->nom = newName;
+	app->menus = newMenus;
+	app->nb_menus = newMenuCount;
+}

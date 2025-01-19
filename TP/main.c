@@ -49,15 +49,11 @@ int main(){
 	printf("min = % d, max = % d\n", min, max);
 	*/
 
-	struct Menu photoMenus[] = {"Prendre un photo", "Prendre un video", "Prendre un panorama", "Ajouter un filtre", "Regarder les photos"};
+	struct Menu photoMenus[] = {"Prendre un photo", "Prendre une video", "Prendre un panorama", "Ajouter un filtre", "Regarder les photos"};
 	struct Application photoApp = { "Photos", &photoMenus, 5 };
 
 	struct Menu messagesMenus[] = { "Lire les messages", "Envoyer un message" };
 	struct Application messagesApp = { "Messages", &messagesMenus, 2 };
-
-	updateMenu(&photoApp, 0, "Photographier");
-	updateMenu(&photoApp, 1, "Filmer");
-	updateMenu(&photoApp, 5, "Zoomer");
 
 	struct Menu nouveauMenu[] = { "Rechercher", "Se connecter", "Historique de recherches" };
 	updateApplication(&messagesApp, "Moteur de recherche", &nouveauMenu, 3);

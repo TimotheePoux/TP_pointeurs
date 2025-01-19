@@ -29,7 +29,7 @@ void runApplication(const struct Application* app) {
 void runPhone(struct Application* app1, struct Application* app2) {
 	int run = 1;
 	while (run == 1) {
-		printf("--Applications--\n1. %s\n2. %s\nChoisissez une application (0 pour quitter): ", app1->nom, app2->nom);
+		printf("--Applications--\n1. %s\n2. %s\n3. Modifier le menu de 'Photos'\nChoisissez une application (0 pour quitter): ", app1->nom, app2->nom);
 		int choix = 0;
 		scanf_s("%d", &choix);
 		switch(choix) {
@@ -42,8 +42,11 @@ void runPhone(struct Application* app1, struct Application* app2) {
 		case 2:
 			runApplication(app2);
 			break;
+		case 3:
+			modifierMenu(app1);
+			break;
 		default:
-			printf("Entrez une valeur valide\n\n");
+			printf("Entrez une valeur valide\n");
 			break;
 		}
 	}
@@ -63,4 +66,23 @@ void updateApplication(struct Application* app, const char* newName, struct Menu
 	app->nom = newName;
 	app->menus = newMenus;
 	app->nb_menus = newMenuCount;
+}
+
+void modifierMenu(struct Application* app) {
+	displayMenu(app);
+	int choix = 0;
+	printf(": ");
+	scanf_s("%d", &choix);
+	if (choix == 0) {
+		return;
+	}
+	else if (choix < 0 || choix > app->nb_menus) {
+		printf("Entrez une valeur valide\n");
+	}
+	else {
+		printf("Entrez la nouvelle option: ");
+		char newOption[100] = "";
+		scanf("%s", newOption);
+		updateMenu(app, choix-1, newOption);
+	}
 }
